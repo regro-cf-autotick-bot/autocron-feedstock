@@ -1,5 +1,5 @@
 {% set name = "autocron" %}
-{% set version = "1.0" %}
+{% set version = "1.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/autocron-{{ version }}.tar.gz
-  sha256: 4c3624308ccfd8f05c3ff4f09f4b87c3c5edffbcc1975ee839945b17ea69a65b
+  sha256: 1ebdbe627d707bde4fd19cc82fa1d57f02e584b39777e09a8457094a61c1c264
 
 build:
   entry_points:
