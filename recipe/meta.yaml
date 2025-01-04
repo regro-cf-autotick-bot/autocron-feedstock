@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/autocron-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/autocron-{{ version }}.tar.gz
   sha256: 4c3624308ccfd8f05c3ff4f09f4b87c3c5edffbcc1975ee839945b17ea69a65b
 
 build:
@@ -14,15 +14,15 @@ build:
     - autocron = autocron.admin:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8.0
+    - python {{ python_min }}
     - setuptools
     - pip
   run:
-    - python >=3.8.0
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -32,6 +32,7 @@ test:
     - autocron --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/kbr/autocron
